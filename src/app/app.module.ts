@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     RegistrationComponent,
     LoginComponent,
     HomeComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,7 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe(
       (response) => {
         console.log('Login successful', response);
-        this.loginError = 'крута';
+
       },
       (error) => {
         console.error('Login failed', error);
