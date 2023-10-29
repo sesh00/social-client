@@ -28,6 +28,7 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe(
       (response) => {
         console.log('Login successful', response);
+        localStorage.setItem('userId', response.userId);
         this.router.navigate(['/user', response.userId]); // Переход на страницу пользователя
       },
       (error) => {

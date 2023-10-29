@@ -1,3 +1,20 @@
-<div>
-  <h2>Welcome, User!</h2>
+<div *ngIf="user" class="user-details">
+  <h1>{{ user.name }}</h1>
+  <img [src]="user.photo" [alt]="user.name" class="user-photo" />
+  <p>{{ user.info }}</p>
+
+  <h2>Friends</h2>
+  <div *ngFor="let friend of friends; let i = index">
+    <p>{{ 'Friend ' + (i + 1) + ': ' + friend.name }}</p>
+  </div>
+
+  <h2>News</h2>
+  <div *ngFor="let friend of friends; let i = index">
+    <h3>{{ 'News from ' + friend.name }}</h3>
+    <ul>
+      <li *ngFor="let newsItem of friend.news">
+        {{ friend.name + ': ' + newsItem.text }}
+      </li>
+    </ul>
+  </div>
 </div>

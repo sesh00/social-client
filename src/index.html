@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,8 +6,31 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        const myPageLink = document.getElementById('myPageLink');
+        myPageLink.href = `/user/${userId}`;
+      }
+
+      const exitBtn = document.getElementById('exitBtn');
+      exitBtn.addEventListener('click', function() {
+        localStorage.removeItem('userId');
+      });
+    });
+  </script>
 </head>
 <body>
-  <app-root></app-root>
+<div class="navbar">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a id="myPageLink" href="/">My Page</a></li>
+    <li><a id="exitBtn" href="/">Exit</a></li>
+  </ul>
+</div>
+<app-root></app-root>
 </body>
 </html>

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { UserComponent } from './user/user.component';
+import {UserService} from "./services/user.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -32,7 +33,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [AuthService],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
