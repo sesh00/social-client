@@ -1,3 +1,5 @@
+<!-- all-users.component.html -->
+
 <div class="user-grid">
   <div *ngFor="let user of users" class="user-card">
     <a [routerLink]="['/user', user.id]">
@@ -8,5 +10,8 @@
     <p>Role: {{ user.role }}</p>
     <p>Status: {{ user.status }}</p>
     <p class="birthday" [attr.data-date]="JSON.stringify(user.birthdate)">{{ user.birthdate }}</p>
+    <button class="button" (click)="toggleFriend(user.id)">
+      {{ isFriend(user.id) ? 'Удалить из друзей' : 'Добавить в друзья' }}
+    </button>
   </div>
 </div>

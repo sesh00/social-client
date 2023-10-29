@@ -29,5 +29,18 @@ export class UserService {
     return this.http.post(url, userData, options);
   }
 
+  addFriend(userId: number): Observable<any> {
+    const friendData = { friendId: userId, currentId: this.getCurrentUserId()};
+    return this.http.post(`${this.apiUrl}/${this.getCurrentUserId()}/friends`, friendData);
+  }
 
+  removeFriend(userId: number): Observable<any> {
+    const friendData = { friendId: userId, currentId: this.getCurrentUserId()};
+    return this.http.post(`${this.apiUrl}/${this.getCurrentUserId()}/friends/${userId}`, friendData);
+  }
+
+  getCurrentUserId(): number {
+    const savedUserIdString = localStorage.getItem('userId');
+    return savedUserIdString ? +savedUserIdString : 0;
+  }
 }

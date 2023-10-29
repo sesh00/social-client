@@ -64,7 +64,6 @@ export class UserComponent implements OnInit {
     if (this.photoUrl) {
       this.user.photo = this.photoUrl;
       this.photoUrl = '';
-      // Опционально: отправка изменений на сервер
       this.userService.updateUserData(this.userId, this.user).subscribe(
         (data) => {
           console.log('User data updated successfully');

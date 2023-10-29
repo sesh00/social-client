@@ -26,3 +26,12 @@ margin-bottom: 10px;
   height: auto;
   border-radius: 10px;
 }
+
+.button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
