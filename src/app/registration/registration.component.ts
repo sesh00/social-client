@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -9,8 +10,9 @@ import { AuthService } from '../services/auth.service';
 })
 export class RegistrationComponent {
   registrationForm: FormGroup;
+  registrationError: string | undefined;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.registrationForm = this.fb.group({
       name: ['', Validators.required],
       info: ['', Validators.required],
@@ -25,11 +27,11 @@ export class RegistrationComponent {
     this.authService.register(name, info, birthdate, email, password).subscribe(
       (response) => {
         console.log('Registration successful', response);
-        // Дополнительная обработка успешной регистрации
+        this.router.navigate(['/user', response.userId]);
       },
       (error) => {
         console.error('Registration failed', error);
-        // Дополнительная обработка ошибки регистрации
+        this.registrationError = 'User with this email already exists';
       }
     );
   }

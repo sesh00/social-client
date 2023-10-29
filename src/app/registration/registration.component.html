@@ -17,5 +17,10 @@
     <input type="password" id="password" formControlName="password" />
 
     <button type="submit">Register</button>
+
+    <!-- Добавим ngIf для вывода сообщения об ошибке -->
+    <div *ngIf="registrationError" class="error-message">
+      {{ registrationError }}
+    </div>
   </form>
 </div>

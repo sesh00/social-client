@@ -1,4 +1,3 @@
-// login.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
@@ -11,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  loginError: string | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -22,18 +22,17 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-  loginError: string | undefined
 
   onSubmit() {
     const { email, password } = this.loginForm.value;
     this.authService.login(email, password).subscribe(
       (response) => {
         console.log('Login successful', response);
-
+        this.router.navigate(['/user', response.userId]); // Переход на страницу пользователя
       },
       (error) => {
         console.error('Login failed', error);
-        this.loginError = 'Неправильный email или пароль';
+        this.loginError = 'Invalid email or password';
       }
     );
   }
