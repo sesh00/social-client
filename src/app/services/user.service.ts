@@ -19,4 +19,15 @@ export class UserService {
   getAllUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/all`);
   }
+
+  updateUserData(userId: number | undefined, userData: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const options = { headers };
+
+    const url = `${this.apiUrl}/${userId}`;
+
+    return this.http.post(url, userData, options);
+  }
+
+
 }

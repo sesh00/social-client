@@ -9,3 +9,36 @@
   height: auto;
   border-radius: 20%;
 }
+
+.button-admin {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #333;
+}
+

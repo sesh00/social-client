@@ -1,20 +1,22 @@
+
 <div *ngIf="user" class="user-details">
   <h1>{{ user.name }}</h1>
   <img [src]="user.photo" [alt]="user.name" class="user-photo" />
   <p>{{ user.info }}</p>
 
-  <h2>Friends</h2>
+  <h2>Управление вашим фото</h2>
+
+  <form (submit)="uploadPhoto()">
+    <input type="text" id="photoUrl" placeholder="Введите URL фотографии" name="photoUrl" [(ngModel)]="photoUrl" />
+    <button type="submit" class="button-admin">Сохранить</button>
+  </form>
+
+  <button (click)="deletePhoto()" class="button-admin">Удалить фото</button>
+
+  <h2>Друзья</h2>
   <div *ngFor="let friend of friends; let i = index">
-    <p>{{ 'Friend ' + (i + 1) + ': ' + friend.name }}</p>
+    <p>{{ 'Друг ' + (i + 1) + ': ' + friend.name }}</p>
   </div>
 
-  <h2>News</h2>
-  <div *ngFor="let friend of friends; let i = index">
-    <h3>{{ 'News from ' + friend.name }}</h3>
-    <ul>
-      <li *ngFor="let newsItem of friend.news">
-        {{ friend.name + ': ' + newsItem.text }}
-      </li>
-    </ul>
-  </div>
+  <button (click)="goToAdminPage()" class="button-admin">Перейти на страницу администратора</button>
 </div>
