@@ -25,6 +25,11 @@
     <p>{{ 'Друг ' + (i + 1) + ': ' + friend.name }}</p>
   </div>
 
+  <h2>Новости {{user.name}}</h2>
+  <div *ngFor="let userNews of news; let i = index">
+    <p>{{ 'Новость ' + (i + 1) + ': ' + userNews.text }}</p>
+  </div>
+
   <button (click)="goToAdminPage()" class="button-admin">Перейти на страницу администратора</button>
 
 

@@ -1,4 +1,3 @@
-// Ваш TypeScript файл
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,6 +14,7 @@ export class UserComponent implements OnInit {
   friends: any[] | undefined;
   photoUrl: string | undefined;
   newsContent: string | undefined;
+  news: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,7 +27,18 @@ export class UserComponent implements OnInit {
       this.userId = +params['id'];
       this.checkUserId();
     });
+
+    this.userService.listenForNews().subscribe((data) => {
+      console.log('Новость в реальном времени:', data);
+      this.handleRealTimeNews(data);
+    });
   }
+
+  handleRealTimeNews(news: any) {
+    this.news.push({ text: news.text, user: news.user });
+  }
+
+
 
   checkUserId() {
     const savedUserIdString = localStorage.getItem('userId');
@@ -47,6 +58,7 @@ export class UserComponent implements OnInit {
     this.userService.getUserDetails(this.userId).subscribe(
       (data) => {
         this.user = data.user;
+        this.news = data.news;
         this.friends = data.friends;
       },
       (error) => {

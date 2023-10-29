@@ -14,6 +14,7 @@ import { UserComponent } from './user/user.component';
 import {UserService} from "./services/user.service";
 import { AllUsersComponent } from './all-users/all-users.component';
 import { NewsComponent } from './news/news.component';
+import {WebSocketService} from "./services/web-socket.service";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +44,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
   ],
-  providers: [AuthService, UserService],
+  providers: [AuthService, UserService, WebSocketService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -3,6 +3,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { WebSocketService } from './web-socket.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class UserService {
   private apiUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private webSocketService: WebSocketService) {}
 
   getUserDetails(userId: number | undefined): Observable<any> {
     return this.http.get(`${this.apiUrl}/${userId}/details`);
@@ -50,6 +51,10 @@ export class UserService {
   publishNews(userId: number | undefined, content: string): Observable<any> {
     const newsData = { userId: userId, content: content };
     return this.http.post(`${this.apiUrl}/${userId}/publish`, newsData);
+  }
+
+  listenForNews(): Observable<any> {
+    return this.webSocketService.listen('news');
   }
 
 }
