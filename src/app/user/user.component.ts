@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   user: any;
   friends: any[] | undefined;
   photoUrl: string | undefined;
+  newsContent: string | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -86,5 +87,19 @@ export class UserComponent implements OnInit {
         console.error('Error updating user data', error);
       }
     );
+  }
+
+  publishNews() {
+    if (this.newsContent) {
+      this.userService.publishNews(this.userId, this.newsContent).subscribe(
+        (data: any) => {
+          console.log('Новость успешно опубликована:', data);
+          this.newsContent = '';
+        },
+        (error: any) => {
+          console.error('Ошибка при публикации новости', error);
+        }
+      );
+    }
   }
 }

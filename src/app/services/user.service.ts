@@ -46,4 +46,10 @@ export class UserService {
   getUserNews(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/${this.getCurrentUserId()}/news`);
   }
+
+  publishNews(userId: number | undefined, content: string): Observable<any> {
+    const newsData = { userId: userId, content: content };
+    return this.http.post(`${this.apiUrl}/${userId}/publish`, newsData);
+  }
+
 }

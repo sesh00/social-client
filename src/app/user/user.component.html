@@ -13,10 +13,19 @@
 
   <button (click)="deletePhoto()" class="button-admin">Удалить фото</button>
 
+  <h2>Что у вас нового?</h2>
+
+  <form (submit)="publishNews()">
+    <input type="text" id="newsContent" placeholder="Введите вашу новость" name="newsContent" [(ngModel)]="newsContent" />
+    <button type="submit" class="button-admin">Опубликовать</button>
+  </form>
+
   <h2>Друзья</h2>
   <div *ngFor="let friend of friends; let i = index">
     <p>{{ 'Друг ' + (i + 1) + ': ' + friend.name }}</p>
   </div>
 
   <button (click)="goToAdminPage()" class="button-admin">Перейти на страницу администратора</button>
+
+
 </div>
