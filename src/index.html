@@ -14,12 +14,16 @@
       if (userId) {
         const myPageLink = document.getElementById('myPageLink');
         myPageLink.href = `/user/${userId}`;
+        const usersAll = document.getElementById('usersAll');
+        usersAll.href = `/users/all`
+
       }
 
       const exitBtn = document.getElementById('exitBtn');
       exitBtn.addEventListener('click', function() {
         localStorage.removeItem('userId');
       });
+
     });
   </script>
 </head>
@@ -27,7 +31,8 @@
 <div class="navbar">
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a id="myPageLink" href="/">My Page</a></li>
+    <li><a id="myPageLink" href="/">Page</a></li>
+    <li><a id="usersAll" href="/">Users</a></li>
     <li><a id="exitBtn" href="/">Exit</a></li>
   </ul>
 </div>

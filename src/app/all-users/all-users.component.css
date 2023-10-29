@@ -1,0 +1,28 @@
+.user-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+
+.user-card {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: whitesmoke;
+}
+
+.user-card img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+margin-bottom: 10px;
+}
+
+.user-photo {
+  max-width: 25%;
+  height: auto;
+  border-radius: 10px;
+}

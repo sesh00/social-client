@@ -11,12 +11,15 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
 import { UserComponent } from './user/user.component';
 import {UserService} from "./services/user.service";
+import { AllUsersComponent } from './all-users/all-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'user/:id', component: UserComponent },
+  { path: 'users/all', component: AllUsersComponent },
+
 ];
 
 @NgModule({
@@ -26,6 +29,7 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     UserComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,

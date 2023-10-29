@@ -29,7 +29,7 @@ export class LoginComponent {
       (response) => {
         console.log('Login successful', response);
         localStorage.setItem('userId', response.userId);
-        this.router.navigate(['/user', response.userId]); // Переход на страницу пользователя
+        this.router.navigate(['/user', response.userId]);
       },
       (error) => {
         console.error('Login failed', error);
