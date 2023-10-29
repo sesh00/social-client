@@ -13,6 +13,7 @@ import { AuthService } from './services/auth.service';
 import { UserComponent } from './user/user.component';
 import {UserService} from "./services/user.service";
 import { AllUsersComponent } from './all-users/all-users.component';
+import { NewsComponent } from './news/news.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'user/:id', component: UserComponent },
   { path: 'users/all', component: AllUsersComponent },
+  { path: 'news', component: NewsComponent },
 
 ];
 
@@ -31,6 +33,7 @@ const routes: Routes = [
     HomeComponent,
     UserComponent,
     AllUsersComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,7 @@
 
 <div class="user-grid">
   <div *ngFor="let user of users" class="user-card">
-    <a [routerLink]="['/user', user.id]">
-      <img [src]="user.photo" [alt]="user.name + '\'s photo'" />
-    </a>
+    <img [src]="user.photo" [alt]="user.name + '\'s photo'" />
     <h4>{{ user.name }}</h4>
     <p>Email: {{ user.email }}</p>
     <p>Role: {{ user.role }}</p>

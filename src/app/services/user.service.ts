@@ -43,4 +43,7 @@ export class UserService {
     const savedUserIdString = localStorage.getItem('userId');
     return savedUserIdString ? +savedUserIdString : 0;
   }
+  getUserNews(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${this.getCurrentUserId()}/news`);
+  }
 }
