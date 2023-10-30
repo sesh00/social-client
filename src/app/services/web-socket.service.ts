@@ -1,4 +1,3 @@
-// web-socket.service.ts
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
@@ -10,7 +9,7 @@ export class WebSocketService {
   private socket: Socket;
 
   constructor() {
-    this.socket = io('http://localhost:3000'); // Укажите адрес вашего сервера с веб-сокетами
+    this.socket = io('http://localhost:3000');
   }
 
   listen(event: string): Observable<any> {

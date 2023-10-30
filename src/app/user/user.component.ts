@@ -90,7 +90,6 @@ export class UserComponent implements OnInit {
 
   deletePhoto() {
     this.user.photo = 'https://w.forfun.com/fetch/17/17d767857f1841474ccace158115b032.jpeg';
-    // Опционально: отправка изменений на сервер
     this.userService.updateUserData(this.userId, this.user).subscribe(
       (data) => {
         console.log('User data updated successfully');

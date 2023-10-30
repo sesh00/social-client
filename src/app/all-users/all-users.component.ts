@@ -1,5 +1,3 @@
-// all-users.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 
@@ -25,7 +23,6 @@ export class AllUsersComponent implements OnInit {
       }
     );
 
-    // Получаем список друзей текущего пользователя
     this.refreshUserFriends();
   }
 
@@ -37,7 +34,6 @@ export class AllUsersComponent implements OnInit {
     if (this.isFriend(userId)) {
       this.userService.removeFriend(userId).subscribe(
         () => {
-          // Обработка успешного удаления
           this.userFriends = this.userFriends.filter(friendId => friendId !== userId);
         },
         (error) => {
@@ -45,10 +41,8 @@ export class AllUsersComponent implements OnInit {
         }
       );
     } else {
-      // Добавить пользователя в друзья
       this.userService.addFriend(userId).subscribe(
         () => {
-          // Обработка успешного добавления
           this.userFriends.push(userId);
         },
         (error) => {
